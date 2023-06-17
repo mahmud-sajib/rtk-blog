@@ -16,9 +16,11 @@ function Blog() {
   // Getting the 'dispatch' function to dispatch actions to the Redux store
   const dispatch = useDispatch();
 
+  // Get the id of individual blog
   const { blogId } = useParams();
   console.log(blogId);
 
+  // Fetch blog by id
   useEffect(() => {
     dispatch(fetchBlog(blogId));
   }, [dispatch, blogId]);
