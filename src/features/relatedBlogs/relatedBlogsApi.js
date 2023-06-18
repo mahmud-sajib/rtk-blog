@@ -1,7 +1,6 @@
 import axiosInstance from "../../utils/axios";
 
 export const getRelatedBlogs = async ({ tags, id }) => {
-  console.log("tags coming " + tags);
   const limit = 5;
   let queryString =
     tags?.length > 0

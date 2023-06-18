@@ -5,18 +5,21 @@ import Loading from "../loading/Loading";
 import BlogGridItem from "./BlogGridItem";
 
 function BlogGrid() {
-  // Accessing the 'blogs' state from the Redux store using the 'useSelector' hook
+  // Accessing the states from blogs slice
   const { blogs, isLoading, isError, error } = useSelector(
     (state) => state.blogs
   );
+
+  // Accessing the states from filter slice
+  const { tags, search } = useSelector((state) => state.filter);
 
   // Getting the 'dispatch' function to dispatch actions to the Redux store
   const dispatch = useDispatch();
 
   // Fetching data from server
   useEffect(() => {
-    dispatch(fetchBlogs());
-  }, [dispatch]);
+    dispatch(fetchBlogs({ tags, search }));
+  }, [dispatch, tags, search]);
 
   // Content to show in the ui in various cases
   let content;

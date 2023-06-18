@@ -18,7 +18,7 @@ function Tags() {
   // Content to show in the ui in various cases
   let content;
   if (tags?.length > 0) {
-    content = tags.map((tag) => <Tag key={tag.id} tag={tag} />);
+    content = tags.map((tag) => <Tag key={tag.id} title={tag.title} />);
   } else {
     content = null;
   }
